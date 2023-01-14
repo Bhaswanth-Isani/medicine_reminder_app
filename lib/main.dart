@@ -3,7 +3,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:medicine_reminder_app/core/application/riverpod_observer.dart';
 import 'package:medicine_reminder_app/core/presentation/app.dart';
 
-void main() {
+void main() async {
   runApp(
     ProviderScope(
       observers: [
