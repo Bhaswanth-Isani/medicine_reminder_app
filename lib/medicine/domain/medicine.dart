@@ -11,7 +11,7 @@ class Medicine with _$Medicine {
     required String name,
     required int compartment,
     required int number,
-    required List<DateTime> time,
+    required List<String> time,
     required User? user,
     required String userID,
   }) = _Medicine;

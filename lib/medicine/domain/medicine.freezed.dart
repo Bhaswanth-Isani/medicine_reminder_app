@@ -24,7 +24,7 @@ mixin _$Medicine {
   String get name => throw _privateConstructorUsedError;
   int get compartment => throw _privateConstructorUsedError;
   int get number => throw _privateConstructorUsedError;
-  List<DateTime> get time => throw _privateConstructorUsedError;
+  List<String> get time => throw _privateConstructorUsedError;
   User? get user => throw _privateConstructorUsedError;
   String get userID => throw _privateConstructorUsedError;
 
@@ -44,7 +44,7 @@ abstract class $MedicineCopyWith<$Res> {
       String name,
       int compartment,
       int number,
-      List<DateTime> time,
+      List<String> time,
       User? user,
       String userID});
 
@@ -92,7 +92,7 @@ class _$MedicineCopyWithImpl<$Res, $Val extends Medicine>
       time: null == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
-              as List<DateTime>,
+              as List<String>,
       user: freezed == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
@@ -129,7 +129,7 @@ abstract class _$$_MedicineCopyWith<$Res> implements $MedicineCopyWith<$Res> {
       String name,
       int compartment,
       int number,
-      List<DateTime> time,
+      List<String> time,
       User? user,
       String userID});
 
@@ -176,7 +176,7 @@ class __$$_MedicineCopyWithImpl<$Res>
       time: null == time
           ? _value._time
           : time // ignore: cast_nullable_to_non_nullable
-              as List<DateTime>,
+              as List<String>,
       user: freezed == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
@@ -197,7 +197,7 @@ class _$_Medicine implements _Medicine {
       required this.name,
       required this.compartment,
       required this.number,
-      required final List<DateTime> time,
+      required final List<String> time,
       required this.user,
       required this.userID})
       : _time = time;
@@ -213,9 +213,9 @@ class _$_Medicine implements _Medicine {
   final int compartment;
   @override
   final int number;
-  final List<DateTime> _time;
+  final List<String> _time;
   @override
-  List<DateTime> get time {
+  List<String> get time {
     if (_time is EqualUnmodifiableListView) return _time;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_time);
@@ -271,7 +271,7 @@ abstract class _Medicine implements Medicine {
       required final String name,
       required final int compartment,
       required final int number,
-      required final List<DateTime> time,
+      required final List<String> time,
       required final User? user,
       required final String userID}) = _$_Medicine;
 
@@ -286,7 +286,7 @@ abstract class _Medicine implements Medicine {
   @override
   int get number;
   @override
-  List<DateTime> get time;
+  List<String> get time;
   @override
   User? get user;
   @override

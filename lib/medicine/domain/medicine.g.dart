@@ -11,9 +11,7 @@ _$_Medicine _$$_MedicineFromJson(Map<String, dynamic> json) => _$_Medicine(
       name: json['name'] as String,
       compartment: json['compartment'] as int,
       number: json['number'] as int,
-      time: (json['time'] as List<dynamic>)
-          .map((e) => DateTime.parse(e as String))
-          .toList(),
+      time: (json['time'] as List<dynamic>).map((e) => e as String).toList(),
       user: json['user'] == null
           ? null
           : User.fromJson(json['user'] as Map<String, dynamic>),
@@ -26,7 +24,7 @@ Map<String, dynamic> _$$_MedicineToJson(_$_Medicine instance) =>
       'name': instance.name,
       'compartment': instance.compartment,
       'number': instance.number,
-      'time': instance.time.map((e) => e.toIso8601String()).toList(),
+      'time': instance.time,
       'user': instance.user,
       'userID': instance.userID,
     };
