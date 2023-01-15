@@ -43,7 +43,7 @@ const AuthLocalClientSchema = CollectionSchema(
     r'medicines': LinkSchema(
       id: 4864431254071888426,
       name: r'medicines',
-      target: r'MedicineLocalRepository',
+      target: r'MedicineLocalClient',
       single: false,
     )
   },
@@ -121,7 +121,7 @@ void _authLocalClientAttach(
     IsarCollection<dynamic> col, Id id, AuthLocalClient object) {
   object.id = id;
   object.medicines.attach(
-      col, col.isar.collection<MedicineLocalRepository>(), r'medicines', id);
+      col, col.isar.collection<MedicineLocalClient>(), r'medicines', id);
 }
 
 extension AuthLocalClientQueryWhereSort
@@ -677,7 +677,7 @@ extension AuthLocalClientQueryObject
 extension AuthLocalClientQueryLinks
     on QueryBuilder<AuthLocalClient, AuthLocalClient, QFilterCondition> {
   QueryBuilder<AuthLocalClient, AuthLocalClient, QAfterFilterCondition>
-      medicines(FilterQuery<MedicineLocalRepository> q) {
+      medicines(FilterQuery<MedicineLocalClient> q) {
     return QueryBuilder.apply(this, (query) {
       return query.link(q, r'medicines');
     });

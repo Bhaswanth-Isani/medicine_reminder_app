@@ -1,5 +1,5 @@
 import 'package:isar/isar.dart';
-import 'package:medicine_reminder_app/medicine/infrastructure/medicine_local_repository.dart';
+import 'package:medicine_reminder_app/medicine/infrastructure/medicine_local_client.dart';
 
 part 'auth_local_client.g.dart';
 
@@ -10,5 +10,5 @@ class AuthLocalClient {
   late String name;
   late String token;
 
-  final medicines = IsarLinks<MedicineLocalRepository>();
+  final medicines = IsarLinks<MedicineLocalClient>();
 }
