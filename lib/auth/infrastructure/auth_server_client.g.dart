@@ -22,11 +22,12 @@ class _AuthServerClient implements AuthServerClient {
   String? baseUrl;
 
   @override
-  Future<AuthResponse> createAccount() async {
+  Future<AuthResponse> createAccount(user) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
+    _data.addAll(user.toJson());
     final _result = await _dio
         .fetch<Map<String, dynamic>>(_setStreamType<AuthResponse>(Options(
       method: 'POST',
@@ -45,11 +46,12 @@ class _AuthServerClient implements AuthServerClient {
   }
 
   @override
-  Future<AuthResponse> login() async {
+  Future<AuthResponse> login(user) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
+    _data.addAll(user.toJson());
     final _result = await _dio
         .fetch<Map<String, dynamic>>(_setStreamType<AuthResponse>(Options(
       method: 'POST',
