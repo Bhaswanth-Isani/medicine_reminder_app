@@ -22,7 +22,7 @@ User _$UserFromJson(Map<String, dynamic> json) {
 mixin _$User {
   String? get id => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
   List<Medicine>? get medicine => throw _privateConstructorUsedError;
 
@@ -39,7 +39,7 @@ abstract class $UserCopyWith<$Res> {
   $Res call(
       {String? id,
       String email,
-      String name,
+      String? name,
       String password,
       List<Medicine>? medicine});
 }
@@ -59,7 +59,7 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
   $Res call({
     Object? id = freezed,
     Object? email = null,
-    Object? name = null,
+    Object? name = freezed,
     Object? password = null,
     Object? medicine = freezed,
   }) {
@@ -72,10 +72,10 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
@@ -97,7 +97,7 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
   $Res call(
       {String? id,
       String email,
-      String name,
+      String? name,
       String password,
       List<Medicine>? medicine});
 }
@@ -113,7 +113,7 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
   $Res call({
     Object? id = freezed,
     Object? email = null,
-    Object? name = null,
+    Object? name = freezed,
     Object? password = null,
     Object? medicine = freezed,
   }) {
@@ -126,10 +126,10 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
@@ -146,11 +146,11 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
 @JsonSerializable()
 class _$_User implements _User {
   const _$_User(
-      {required this.id,
+      {this.id,
       required this.email,
-      required this.name,
+      this.name,
       required this.password,
-      required final List<Medicine>? medicine})
+      final List<Medicine>? medicine})
       : _medicine = medicine;
 
   factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
@@ -160,7 +160,7 @@ class _$_User implements _User {
   @override
   final String email;
   @override
-  final String name;
+  final String? name;
   @override
   final String password;
   final List<Medicine>? _medicine;
@@ -212,11 +212,11 @@ class _$_User implements _User {
 
 abstract class _User implements User {
   const factory _User(
-      {required final String? id,
+      {final String? id,
       required final String email,
-      required final String name,
+      final String? name,
       required final String password,
-      required final List<Medicine>? medicine}) = _$_User;
+      final List<Medicine>? medicine}) = _$_User;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
 
@@ -225,7 +225,7 @@ abstract class _User implements User {
   @override
   String get email;
   @override
-  String get name;
+  String? get name;
   @override
   String get password;
   @override

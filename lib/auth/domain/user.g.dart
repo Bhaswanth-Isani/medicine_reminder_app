@@ -9,7 +9,7 @@ part of 'user.dart';
 _$_User _$$_UserFromJson(Map<String, dynamic> json) => _$_User(
       id: json['id'] as String?,
       email: json['email'] as String,
-      name: json['name'] as String,
+      name: json['name'] as String?,
       password: json['password'] as String,
       medicine: (json['medicine'] as List<dynamic>?)
           ?.map((e) => Medicine.fromJson(e as Map<String, dynamic>))
