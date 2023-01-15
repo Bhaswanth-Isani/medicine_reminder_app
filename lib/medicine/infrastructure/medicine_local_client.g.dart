@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'medicine_local_repository.dart';
+part of 'medicine_local_client.dart';
 
 // **************************************************************************
 // IsarCollectionGenerator
@@ -9,14 +9,14 @@ part of 'medicine_local_repository.dart';
 // coverage:ignore-file
 // ignore_for_file: duplicate_ignore, non_constant_identifier_names, constant_identifier_names, invalid_use_of_protected_member, unnecessary_cast, prefer_const_constructors, lines_longer_than_80_chars, require_trailing_commas, inference_failure_on_function_invocation, unnecessary_parenthesis, unnecessary_raw_strings, unnecessary_null_checks, join_return_with_assignment, prefer_final_locals, avoid_js_rounded_ints, avoid_positional_boolean_parameters
 
-extension GetMedicineLocalRepositoryCollection on Isar {
-  IsarCollection<MedicineLocalRepository> get medicineLocalRepositorys =>
+extension GetMedicineLocalClientCollection on Isar {
+  IsarCollection<MedicineLocalClient> get medicineLocalClients =>
       this.collection();
 }
 
-const MedicineLocalRepositorySchema = CollectionSchema(
-  name: r'MedicineLocalRepository',
-  id: -8017749670758826281,
+const MedicineLocalClientSchema = CollectionSchema(
+  name: r'MedicineLocalClient',
+  id: -8936686316306977499,
   properties: {
     r'compartment': PropertySchema(
       id: 0,
@@ -44,29 +44,29 @@ const MedicineLocalRepositorySchema = CollectionSchema(
       type: IsarType.string,
     )
   },
-  estimateSize: _medicineLocalRepositoryEstimateSize,
-  serialize: _medicineLocalRepositorySerialize,
-  deserialize: _medicineLocalRepositoryDeserialize,
-  deserializeProp: _medicineLocalRepositoryDeserializeProp,
+  estimateSize: _medicineLocalClientEstimateSize,
+  serialize: _medicineLocalClientSerialize,
+  deserialize: _medicineLocalClientDeserialize,
+  deserializeProp: _medicineLocalClientDeserializeProp,
   idName: r'id',
   indexes: {},
   links: {
     r'user': LinkSchema(
-      id: -7555564508894028977,
+      id: -1550763676129649906,
       name: r'user',
       target: r'AuthLocalClient',
       single: true,
     )
   },
   embeddedSchemas: {},
-  getId: _medicineLocalRepositoryGetId,
-  getLinks: _medicineLocalRepositoryGetLinks,
-  attach: _medicineLocalRepositoryAttach,
+  getId: _medicineLocalClientGetId,
+  getLinks: _medicineLocalClientGetLinks,
+  attach: _medicineLocalClientAttach,
   version: '3.0.5',
 );
 
-int _medicineLocalRepositoryEstimateSize(
-  MedicineLocalRepository object,
+int _medicineLocalClientEstimateSize(
+  MedicineLocalClient object,
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
 ) {
@@ -77,8 +77,8 @@ int _medicineLocalRepositoryEstimateSize(
   return bytesCount;
 }
 
-void _medicineLocalRepositorySerialize(
-  MedicineLocalRepository object,
+void _medicineLocalClientSerialize(
+  MedicineLocalClient object,
   IsarWriter writer,
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
@@ -90,13 +90,13 @@ void _medicineLocalRepositorySerialize(
   writer.writeString(offsets[4], object.userID);
 }
 
-MedicineLocalRepository _medicineLocalRepositoryDeserialize(
+MedicineLocalClient _medicineLocalClientDeserialize(
   Id id,
   IsarReader reader,
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
 ) {
-  final object = MedicineLocalRepository();
+  final object = MedicineLocalClient();
   object.compartment = reader.readLong(offsets[0]);
   object.id = id;
   object.name = reader.readString(offsets[1]);
@@ -106,7 +106,7 @@ MedicineLocalRepository _medicineLocalRepositoryDeserialize(
   return object;
 }
 
-P _medicineLocalRepositoryDeserializeProp<P>(
+P _medicineLocalClientDeserializeProp<P>(
   IsarReader reader,
   int propertyId,
   int offset,
@@ -128,35 +128,34 @@ P _medicineLocalRepositoryDeserializeProp<P>(
   }
 }
 
-Id _medicineLocalRepositoryGetId(MedicineLocalRepository object) {
+Id _medicineLocalClientGetId(MedicineLocalClient object) {
   return object.id;
 }
 
-List<IsarLinkBase<dynamic>> _medicineLocalRepositoryGetLinks(
-    MedicineLocalRepository object) {
+List<IsarLinkBase<dynamic>> _medicineLocalClientGetLinks(
+    MedicineLocalClient object) {
   return [object.user];
 }
 
-void _medicineLocalRepositoryAttach(
-    IsarCollection<dynamic> col, Id id, MedicineLocalRepository object) {
+void _medicineLocalClientAttach(
+    IsarCollection<dynamic> col, Id id, MedicineLocalClient object) {
   object.id = id;
   object.user.attach(col, col.isar.collection<AuthLocalClient>(), r'user', id);
 }
 
-extension MedicineLocalRepositoryQueryWhereSort
-    on QueryBuilder<MedicineLocalRepository, MedicineLocalRepository, QWhere> {
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository, QAfterWhere>
-      anyId() {
+extension MedicineLocalClientQueryWhereSort
+    on QueryBuilder<MedicineLocalClient, MedicineLocalClient, QWhere> {
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterWhere> anyId() {
     return QueryBuilder.apply(this, (query) {
       return query.addWhereClause(const IdWhereClause.any());
     });
   }
 }
 
-extension MedicineLocalRepositoryQueryWhere on QueryBuilder<
-    MedicineLocalRepository, MedicineLocalRepository, QWhereClause> {
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterWhereClause> idEqualTo(Id id) {
+extension MedicineLocalClientQueryWhere
+    on QueryBuilder<MedicineLocalClient, MedicineLocalClient, QWhereClause> {
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterWhereClause>
+      idEqualTo(Id id) {
     return QueryBuilder.apply(this, (query) {
       return query.addWhereClause(IdWhereClause.between(
         lower: id,
@@ -165,8 +164,8 @@ extension MedicineLocalRepositoryQueryWhere on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterWhereClause> idNotEqualTo(Id id) {
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterWhereClause>
+      idNotEqualTo(Id id) {
     return QueryBuilder.apply(this, (query) {
       if (query.whereSort == Sort.asc) {
         return query
@@ -188,8 +187,8 @@ extension MedicineLocalRepositoryQueryWhere on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterWhereClause> idGreaterThan(Id id, {bool include = false}) {
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterWhereClause>
+      idGreaterThan(Id id, {bool include = false}) {
     return QueryBuilder.apply(this, (query) {
       return query.addWhereClause(
         IdWhereClause.greaterThan(lower: id, includeLower: include),
@@ -197,8 +196,8 @@ extension MedicineLocalRepositoryQueryWhere on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterWhereClause> idLessThan(Id id, {bool include = false}) {
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterWhereClause>
+      idLessThan(Id id, {bool include = false}) {
     return QueryBuilder.apply(this, (query) {
       return query.addWhereClause(
         IdWhereClause.lessThan(upper: id, includeUpper: include),
@@ -206,8 +205,8 @@ extension MedicineLocalRepositoryQueryWhere on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterWhereClause> idBetween(
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterWhereClause>
+      idBetween(
     Id lowerId,
     Id upperId, {
     bool includeLower = true,
@@ -224,10 +223,10 @@ extension MedicineLocalRepositoryQueryWhere on QueryBuilder<
   }
 }
 
-extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
-    MedicineLocalRepository, MedicineLocalRepository, QFilterCondition> {
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> compartmentEqualTo(int value) {
+extension MedicineLocalClientQueryFilter on QueryBuilder<MedicineLocalClient,
+    MedicineLocalClient, QFilterCondition> {
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      compartmentEqualTo(int value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'compartment',
@@ -236,8 +235,8 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> compartmentGreaterThan(
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      compartmentGreaterThan(
     int value, {
     bool include = false,
   }) {
@@ -250,8 +249,8 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> compartmentLessThan(
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      compartmentLessThan(
     int value, {
     bool include = false,
   }) {
@@ -264,8 +263,8 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> compartmentBetween(
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      compartmentBetween(
     int lower,
     int upper, {
     bool includeLower = true,
@@ -282,8 +281,8 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> idEqualTo(Id value) {
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      idEqualTo(Id value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'id',
@@ -292,8 +291,8 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> idGreaterThan(
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      idGreaterThan(
     Id value, {
     bool include = false,
   }) {
@@ -306,8 +305,8 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> idLessThan(
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      idLessThan(
     Id value, {
     bool include = false,
   }) {
@@ -320,8 +319,8 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> idBetween(
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      idBetween(
     Id lower,
     Id upper, {
     bool includeLower = true,
@@ -338,8 +337,8 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> nameEqualTo(
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      nameEqualTo(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -352,8 +351,8 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> nameGreaterThan(
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      nameGreaterThan(
     String value, {
     bool include = false,
     bool caseSensitive = true,
@@ -368,8 +367,8 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> nameLessThan(
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      nameLessThan(
     String value, {
     bool include = false,
     bool caseSensitive = true,
@@ -384,8 +383,8 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> nameBetween(
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      nameBetween(
     String lower,
     String upper, {
     bool includeLower = true,
@@ -404,8 +403,8 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> nameStartsWith(
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      nameStartsWith(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -418,8 +417,8 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> nameEndsWith(
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      nameEndsWith(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -432,8 +431,7 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-          QAfterFilterCondition>
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
       nameContains(String value, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.contains(
@@ -444,8 +442,7 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-          QAfterFilterCondition>
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
       nameMatches(String pattern, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.matches(
@@ -456,8 +453,8 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> nameIsEmpty() {
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      nameIsEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'name',
@@ -466,8 +463,8 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> nameIsNotEmpty() {
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      nameIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
         property: r'name',
@@ -476,8 +473,8 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> numberEqualTo(int value) {
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      numberEqualTo(int value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'number',
@@ -486,8 +483,8 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> numberGreaterThan(
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      numberGreaterThan(
     int value, {
     bool include = false,
   }) {
@@ -500,8 +497,8 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> numberLessThan(
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      numberLessThan(
     int value, {
     bool include = false,
   }) {
@@ -514,8 +511,8 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> numberBetween(
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      numberBetween(
     int lower,
     int upper, {
     bool includeLower = true,
@@ -532,8 +529,8 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> timeElementEqualTo(DateTime value) {
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      timeElementEqualTo(DateTime value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'time',
@@ -542,8 +539,8 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> timeElementGreaterThan(
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      timeElementGreaterThan(
     DateTime value, {
     bool include = false,
   }) {
@@ -556,8 +553,8 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> timeElementLessThan(
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      timeElementLessThan(
     DateTime value, {
     bool include = false,
   }) {
@@ -570,8 +567,8 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> timeElementBetween(
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      timeElementBetween(
     DateTime lower,
     DateTime upper, {
     bool includeLower = true,
@@ -588,8 +585,8 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> timeLengthEqualTo(int length) {
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      timeLengthEqualTo(int length) {
     return QueryBuilder.apply(this, (query) {
       return query.listLength(
         r'time',
@@ -601,8 +598,8 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> timeIsEmpty() {
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      timeIsEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.listLength(
         r'time',
@@ -614,8 +611,8 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> timeIsNotEmpty() {
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      timeIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.listLength(
         r'time',
@@ -627,8 +624,8 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> timeLengthLessThan(
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      timeLengthLessThan(
     int length, {
     bool include = false,
   }) {
@@ -643,8 +640,8 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> timeLengthGreaterThan(
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      timeLengthGreaterThan(
     int length, {
     bool include = false,
   }) {
@@ -659,8 +656,8 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> timeLengthBetween(
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      timeLengthBetween(
     int lower,
     int upper, {
     bool includeLower = true,
@@ -677,8 +674,8 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> userIDEqualTo(
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      userIDEqualTo(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -691,8 +688,8 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> userIDGreaterThan(
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      userIDGreaterThan(
     String value, {
     bool include = false,
     bool caseSensitive = true,
@@ -707,8 +704,8 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> userIDLessThan(
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      userIDLessThan(
     String value, {
     bool include = false,
     bool caseSensitive = true,
@@ -723,8 +720,8 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> userIDBetween(
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      userIDBetween(
     String lower,
     String upper, {
     bool includeLower = true,
@@ -743,8 +740,8 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> userIDStartsWith(
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      userIDStartsWith(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -757,8 +754,8 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> userIDEndsWith(
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      userIDEndsWith(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -771,8 +768,7 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-          QAfterFilterCondition>
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
       userIDContains(String value, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.contains(
@@ -783,8 +779,7 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-          QAfterFilterCondition>
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
       userIDMatches(String pattern, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.matches(
@@ -795,8 +790,8 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> userIDIsEmpty() {
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      userIDIsEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'userID',
@@ -805,8 +800,8 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> userIDIsNotEmpty() {
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      userIDIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
         property: r'userID',
@@ -816,78 +811,78 @@ extension MedicineLocalRepositoryQueryFilter on QueryBuilder<
   }
 }
 
-extension MedicineLocalRepositoryQueryObject on QueryBuilder<
-    MedicineLocalRepository, MedicineLocalRepository, QFilterCondition> {}
+extension MedicineLocalClientQueryObject on QueryBuilder<MedicineLocalClient,
+    MedicineLocalClient, QFilterCondition> {}
 
-extension MedicineLocalRepositoryQueryLinks on QueryBuilder<
-    MedicineLocalRepository, MedicineLocalRepository, QFilterCondition> {
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> user(FilterQuery<AuthLocalClient> q) {
+extension MedicineLocalClientQueryLinks on QueryBuilder<MedicineLocalClient,
+    MedicineLocalClient, QFilterCondition> {
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      user(FilterQuery<AuthLocalClient> q) {
     return QueryBuilder.apply(this, (query) {
       return query.link(q, r'user');
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository,
-      QAfterFilterCondition> userIsNull() {
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterFilterCondition>
+      userIsNull() {
     return QueryBuilder.apply(this, (query) {
       return query.linkLength(r'user', 0, true, 0, true);
     });
   }
 }
 
-extension MedicineLocalRepositoryQuerySortBy
-    on QueryBuilder<MedicineLocalRepository, MedicineLocalRepository, QSortBy> {
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository, QAfterSortBy>
+extension MedicineLocalClientQuerySortBy
+    on QueryBuilder<MedicineLocalClient, MedicineLocalClient, QSortBy> {
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterSortBy>
       sortByCompartment() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'compartment', Sort.asc);
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository, QAfterSortBy>
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterSortBy>
       sortByCompartmentDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'compartment', Sort.desc);
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository, QAfterSortBy>
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterSortBy>
       sortByName() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'name', Sort.asc);
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository, QAfterSortBy>
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterSortBy>
       sortByNameDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'name', Sort.desc);
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository, QAfterSortBy>
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterSortBy>
       sortByNumber() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'number', Sort.asc);
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository, QAfterSortBy>
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterSortBy>
       sortByNumberDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'number', Sort.desc);
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository, QAfterSortBy>
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterSortBy>
       sortByUserID() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'userID', Sort.asc);
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository, QAfterSortBy>
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterSortBy>
       sortByUserIDDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'userID', Sort.desc);
@@ -895,72 +890,72 @@ extension MedicineLocalRepositoryQuerySortBy
   }
 }
 
-extension MedicineLocalRepositoryQuerySortThenBy on QueryBuilder<
-    MedicineLocalRepository, MedicineLocalRepository, QSortThenBy> {
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository, QAfterSortBy>
+extension MedicineLocalClientQuerySortThenBy
+    on QueryBuilder<MedicineLocalClient, MedicineLocalClient, QSortThenBy> {
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterSortBy>
       thenByCompartment() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'compartment', Sort.asc);
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository, QAfterSortBy>
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterSortBy>
       thenByCompartmentDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'compartment', Sort.desc);
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository, QAfterSortBy>
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterSortBy>
       thenById() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'id', Sort.asc);
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository, QAfterSortBy>
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterSortBy>
       thenByIdDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'id', Sort.desc);
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository, QAfterSortBy>
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterSortBy>
       thenByName() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'name', Sort.asc);
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository, QAfterSortBy>
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterSortBy>
       thenByNameDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'name', Sort.desc);
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository, QAfterSortBy>
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterSortBy>
       thenByNumber() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'number', Sort.asc);
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository, QAfterSortBy>
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterSortBy>
       thenByNumberDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'number', Sort.desc);
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository, QAfterSortBy>
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterSortBy>
       thenByUserID() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'userID', Sort.asc);
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository, QAfterSortBy>
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QAfterSortBy>
       thenByUserIDDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'userID', Sort.desc);
@@ -968,37 +963,37 @@ extension MedicineLocalRepositoryQuerySortThenBy on QueryBuilder<
   }
 }
 
-extension MedicineLocalRepositoryQueryWhereDistinct on QueryBuilder<
-    MedicineLocalRepository, MedicineLocalRepository, QDistinct> {
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository, QDistinct>
+extension MedicineLocalClientQueryWhereDistinct
+    on QueryBuilder<MedicineLocalClient, MedicineLocalClient, QDistinct> {
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QDistinct>
       distinctByCompartment() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'compartment');
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository, QDistinct>
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QDistinct>
       distinctByName({bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'name', caseSensitive: caseSensitive);
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository, QDistinct>
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QDistinct>
       distinctByNumber() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'number');
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository, QDistinct>
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QDistinct>
       distinctByTime() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'time');
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, MedicineLocalRepository, QDistinct>
+  QueryBuilder<MedicineLocalClient, MedicineLocalClient, QDistinct>
       distinctByUserID({bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'userID', caseSensitive: caseSensitive);
@@ -1006,44 +1001,41 @@ extension MedicineLocalRepositoryQueryWhereDistinct on QueryBuilder<
   }
 }
 
-extension MedicineLocalRepositoryQueryProperty on QueryBuilder<
-    MedicineLocalRepository, MedicineLocalRepository, QQueryProperty> {
-  QueryBuilder<MedicineLocalRepository, int, QQueryOperations> idProperty() {
+extension MedicineLocalClientQueryProperty
+    on QueryBuilder<MedicineLocalClient, MedicineLocalClient, QQueryProperty> {
+  QueryBuilder<MedicineLocalClient, int, QQueryOperations> idProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'id');
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, int, QQueryOperations>
+  QueryBuilder<MedicineLocalClient, int, QQueryOperations>
       compartmentProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'compartment');
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, String, QQueryOperations>
-      nameProperty() {
+  QueryBuilder<MedicineLocalClient, String, QQueryOperations> nameProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'name');
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, int, QQueryOperations>
-      numberProperty() {
+  QueryBuilder<MedicineLocalClient, int, QQueryOperations> numberProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'number');
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, List<DateTime>, QQueryOperations>
+  QueryBuilder<MedicineLocalClient, List<DateTime>, QQueryOperations>
       timeProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'time');
     });
   }
 
-  QueryBuilder<MedicineLocalRepository, String, QQueryOperations>
-      userIDProperty() {
+  QueryBuilder<MedicineLocalClient, String, QQueryOperations> userIDProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'userID');
     });

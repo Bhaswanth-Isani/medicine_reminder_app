@@ -1,11 +1,10 @@
 import 'package:isar/isar.dart';
-import 'package:medicine_reminder_app/auth/domain/user.dart';
 import 'package:medicine_reminder_app/auth/infrastructure/auth_local_client.dart';
 
-part 'medicine_local_repository.g.dart';
+part 'medicine_local_client.g.dart';
 
 @collection
-class MedicineLocalRepository {
+class MedicineLocalClient {
   Id id = Isar.autoIncrement;
   late String name;
   late int compartment;
