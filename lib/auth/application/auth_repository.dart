@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:dio/dio.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:medicine_reminder_app/auth/application/auth_repository_state.dart';
 import 'package:medicine_reminder_app/auth/domain/user.dart';
@@ -42,52 +45,52 @@ class AuthRepository extends StateNotifier<AuthRepositoryState> {
     }
   }
 
-  Future<void> createAccountUsingEmailAndPassword(
-    String email,
-    String password,
-    String name,
-  ) async {
+  Future<void> createAccountUsingEmailAndPassword({
+    required String email,
+    required String password,
+    required String name,
+  }) async {
     final authClient = AuthServerClient(ref.read(dioClientProvider));
 
-    state = state.copyWith(isLoading: false);
+    state = state.copyWith(isLoading: true);
 
-    final registerResponse = await authClient.createAccount(
-      User(email: email, name: name, password: password),
-    );
+      final registerResponse = await authClient.createAccount(
+        User(email: email, name: name, password: password),
+      );
 
-    final userResponse = registerResponse.user;
+      final userResponse = registerResponse.user;
 
-    if (registerResponse.error == null && userResponse != null) {
-      state = state.copyWith(
-        isLoading: false,
-        user: User(
-          email: userResponse.email,
-          name: userResponse.name,
-          password: userResponse.password,
-          id: userResponse.id,
-          medicine: userResponse.medicine,
-        ),
-        error: null,
-      );
-    } else if (registerResponse.error != null) {
-      state = state.copyWith(
-        isLoading: false,
-        error: registerResponse.error,
-        user: null,
-      );
-    } else {
-      state = state.copyWith(
-        isLoading: false,
-        error: 'SERVER_ERROR',
-        user: null,
-      );
-    }
+      if (registerResponse.error == null && userResponse != null) {
+        state = state.copyWith(
+          isLoading: false,
+          user: User(
+            email: userResponse.email,
+            name: userResponse.name,
+            password: userResponse.password,
+            id: userResponse.id,
+            medicine: userResponse.medicine,
+          ),
+          error: null,
+        );
+      } else if (registerResponse.error != null) {
+        state = state.copyWith(
+          isLoading: false,
+          error: registerResponse.error,
+          user: null,
+        );
+      } else {
+        state = state.copyWith(
+          isLoading: false,
+          error: 'SERVER_ERROR',
+          user: null,
+        );
+      }
   }
 
-  Future<void> loginUsingEmailAndPassword(
-    String email,
-    String password,
-  ) async {
+  Future<void> loginUsingEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
     final authClient = AuthServerClient(ref.read(dioClientProvider));
 
     state = state.copyWith(isLoading: false);
