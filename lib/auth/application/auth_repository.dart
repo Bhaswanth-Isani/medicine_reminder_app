@@ -1,6 +1,3 @@
-import 'dart:developer';
-
-import 'package:dio/dio.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:medicine_reminder_app/auth/application/auth_repository_state.dart';
 import 'package:medicine_reminder_app/auth/domain/user.dart';
@@ -54,37 +51,49 @@ class AuthRepository extends StateNotifier<AuthRepositoryState> {
 
     state = state.copyWith(isLoading: true);
 
-      final registerResponse = await authClient.createAccount(
-        User(email: email, name: name, password: password),
+    final registerResponse = await authClient.createAccount(
+      User(email: email, name: name, password: password),
+    );
+
+    final userResponse = registerResponse.user;
+
+    if (registerResponse.error == null && userResponse != null) {
+      state = state.copyWith(
+        isLoading: false,
+        user: User(
+          email: userResponse.email,
+          name: userResponse.name,
+          password: userResponse.password,
+          id: userResponse.id,
+          medicine: userResponse.medicine,
+        ),
+        error: null,
       );
 
-      final userResponse = registerResponse.user;
+      ref.read(isarClientProvider).writeTxnSync(() {
+        final admin = AuthLocalClient()
+          ..email = userResponse.email
+          ..name = userResponse.name!
+          ..token = registerResponse.token!;
 
-      if (registerResponse.error == null && userResponse != null) {
-        state = state.copyWith(
-          isLoading: false,
-          user: User(
-            email: userResponse.email,
-            name: userResponse.name,
-            password: userResponse.password,
-            id: userResponse.id,
-            medicine: userResponse.medicine,
-          ),
-          error: null,
-        );
-      } else if (registerResponse.error != null) {
-        state = state.copyWith(
-          isLoading: false,
-          error: registerResponse.error,
-          user: null,
-        );
-      } else {
-        state = state.copyWith(
-          isLoading: false,
-          error: 'SERVER_ERROR',
-          user: null,
-        );
-      }
+        ref
+            .read(isarClientProvider)
+            .collection<AuthLocalClient>()
+            .putSync(admin);
+      });
+    } else if (registerResponse.error != null) {
+      state = state.copyWith(
+        isLoading: false,
+        error: registerResponse.error,
+        user: null,
+      );
+    } else {
+      state = state.copyWith(
+        isLoading: false,
+        error: 'SERVER_ERROR',
+        user: null,
+      );
+    }
   }
 
   Future<void> loginUsingEmailAndPassword({
@@ -113,6 +122,18 @@ class AuthRepository extends StateNotifier<AuthRepositoryState> {
         ),
         error: null,
       );
+
+      ref.read(isarClientProvider).writeTxnSync(() {
+        final admin = AuthLocalClient()
+          ..email = userResponse.email
+          ..name = userResponse.name!
+          ..token = loginResponse.token!;
+
+        ref
+            .read(isarClientProvider)
+            .collection<AuthLocalClient>()
+            .putSync(admin);
+      });
     } else if (loginResponse.error != null) {
       state = state.copyWith(
         isLoading: false,
@@ -126,5 +147,16 @@ class AuthRepository extends StateNotifier<AuthRepositoryState> {
         user: null,
       );
     }
+  }
+
+  void signOut() {
+    ref.read(isarClientProvider).writeTxnSync(
+          () => ref
+              .read(isarClientProvider)
+              .collection<AuthLocalClient>()
+              .deleteSync(0),
+        );
+
+    state = state.copyWith(isLoading: false, user: null, error: null);
   }
 }
