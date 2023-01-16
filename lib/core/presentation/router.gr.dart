@@ -28,6 +28,12 @@ class _$AppRouter extends RootStackRouter {
         child: const CreateAccountPage(),
       );
     },
+    LoginRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const LoginPage(),
+      );
+    },
     MedicineRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
         routeData: routeData,
@@ -40,11 +46,15 @@ class _$AppRouter extends RootStackRouter {
   List<RouteConfig> get routes => [
         RouteConfig(
           CreateAccountRoute.name,
-          path: '/',
+          path: '/create-account-page',
+        ),
+        RouteConfig(
+          LoginRoute.name,
+          path: '/login-page',
         ),
         RouteConfig(
           MedicineRoute.name,
-          path: '/medicine-page',
+          path: '/',
           guards: [authGuard],
         ),
       ];
@@ -56,10 +66,22 @@ class CreateAccountRoute extends PageRouteInfo<void> {
   const CreateAccountRoute()
       : super(
           CreateAccountRoute.name,
-          path: '/',
+          path: '/create-account-page',
         );
 
   static const String name = 'CreateAccountRoute';
+}
+
+/// generated route for
+/// [LoginPage]
+class LoginRoute extends PageRouteInfo<void> {
+  const LoginRoute()
+      : super(
+          LoginRoute.name,
+          path: '/login-page',
+        );
+
+  static const String name = 'LoginRoute';
 }
 
 /// generated route for
@@ -68,7 +90,7 @@ class MedicineRoute extends PageRouteInfo<void> {
   const MedicineRoute()
       : super(
           MedicineRoute.name,
-          path: '/medicine-page',
+          path: '/',
         );
 
   static const String name = 'MedicineRoute';
