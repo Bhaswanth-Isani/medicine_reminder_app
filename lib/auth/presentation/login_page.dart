@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:medicine_reminder_app/auth/application/auth_repository.dart';
-import 'package:medicine_reminder_app/auth/presentation/create_account_page.dart';
+import 'package:medicine_reminder_app/core/presentation/custom_text_field.dart';
 import 'package:medicine_reminder_app/core/presentation/router.dart';
 
 class LoginPage extends HookConsumerWidget {

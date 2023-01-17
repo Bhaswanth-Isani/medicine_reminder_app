@@ -4,7 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:medicine_reminder_app/auth/application/auth_repository.dart';
 import 'package:medicine_reminder_app/auth/presentation/create_account_page.dart';
 import 'package:medicine_reminder_app/auth/presentation/login_page.dart';
-import 'package:medicine_reminder_app/medicine/presentation/medicine.dart';
+import 'package:medicine_reminder_app/medicine/presentation/medicine_page.dart';
 
 part 'router.gr.dart';
 

@@ -5,6 +5,7 @@ import 'package:medicine_reminder_app/auth/infrastructure/auth_local_client.dart
 import 'package:medicine_reminder_app/auth/infrastructure/auth_server_client.dart';
 import 'package:medicine_reminder_app/core/infrastructure/dio_client_provider.dart';
 import 'package:medicine_reminder_app/core/infrastructure/isar_client_provider.dart';
+import 'package:medicine_reminder_app/medicine/infrastructure/medicine_local_client.dart';
 
 final authRepositoryProvider =
     StateNotifierProvider<AuthRepository, AuthRepositoryState>(
@@ -65,7 +66,7 @@ class AuthRepository extends StateNotifier<AuthRepositoryState> {
           name: userResponse.name,
           password: userResponse.password,
           id: userResponse.id,
-          medicine: userResponse.medicine,
+          medicines: userResponse.medicines,
         ),
         error: null,
       );
@@ -102,7 +103,7 @@ class AuthRepository extends StateNotifier<AuthRepositoryState> {
   }) async {
     final authClient = AuthServerClient(ref.read(dioClientProvider));
 
-    state = state.copyWith(isLoading: false);
+    state = state.copyWith(isLoading: true);
 
     final loginResponse = await authClient.login(
       User(email: email, password: password),
@@ -118,16 +119,33 @@ class AuthRepository extends StateNotifier<AuthRepositoryState> {
           name: userResponse.name,
           password: userResponse.password,
           id: userResponse.id,
-          medicine: userResponse.medicine,
+          medicines: userResponse.medicines,
         ),
         error: null,
       );
 
       ref.read(isarClientProvider).writeTxnSync(() {
+        final medicines = userResponse.medicines?.map((e) {
+          final medicine = MedicineLocalClient()
+            ..userID = e.userID
+            ..name = e.name
+            ..compartment = e.compartment
+            ..number = e.number
+            ..time = e.time.map(DateTime.parse).toList();
+
+          ref
+              .read(isarClientProvider)
+              .collection<MedicineLocalClient>()
+              .putSync(medicine);
+
+          return medicine;
+        });
+
         final admin = AuthLocalClient()
           ..email = userResponse.email
           ..name = userResponse.name!
-          ..token = loginResponse.token!;
+          ..token = loginResponse.token!
+          ..medicines.addAll(medicines ?? []);
 
         ref
             .read(isarClientProvider)

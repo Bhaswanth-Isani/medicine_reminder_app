@@ -24,7 +24,7 @@ mixin _$User {
   String get email => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
-  List<Medicine>? get medicine => throw _privateConstructorUsedError;
+  List<Medicine>? get medicines => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,7 +41,7 @@ abstract class $UserCopyWith<$Res> {
       String email,
       String? name,
       String password,
-      List<Medicine>? medicine});
+      List<Medicine>? medicines});
 }
 
 /// @nodoc
@@ -61,7 +61,7 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? email = null,
     Object? name = freezed,
     Object? password = null,
-    Object? medicine = freezed,
+    Object? medicines = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -80,9 +80,9 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-      medicine: freezed == medicine
-          ? _value.medicine
-          : medicine // ignore: cast_nullable_to_non_nullable
+      medicines: freezed == medicines
+          ? _value.medicines
+          : medicines // ignore: cast_nullable_to_non_nullable
               as List<Medicine>?,
     ) as $Val);
   }
@@ -99,7 +99,7 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
       String email,
       String? name,
       String password,
-      List<Medicine>? medicine});
+      List<Medicine>? medicines});
 }
 
 /// @nodoc
@@ -115,7 +115,7 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
     Object? email = null,
     Object? name = freezed,
     Object? password = null,
-    Object? medicine = freezed,
+    Object? medicines = freezed,
   }) {
     return _then(_$_User(
       id: freezed == id
@@ -134,9 +134,9 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-      medicine: freezed == medicine
-          ? _value._medicine
-          : medicine // ignore: cast_nullable_to_non_nullable
+      medicines: freezed == medicines
+          ? _value._medicines
+          : medicines // ignore: cast_nullable_to_non_nullable
               as List<Medicine>?,
     ));
   }
@@ -150,8 +150,8 @@ class _$_User implements _User {
       required this.email,
       this.name,
       required this.password,
-      final List<Medicine>? medicine})
-      : _medicine = medicine;
+      final List<Medicine>? medicines})
+      : _medicines = medicines;
 
   factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
 
@@ -163,19 +163,19 @@ class _$_User implements _User {
   final String? name;
   @override
   final String password;
-  final List<Medicine>? _medicine;
+  final List<Medicine>? _medicines;
   @override
-  List<Medicine>? get medicine {
-    final value = _medicine;
+  List<Medicine>? get medicines {
+    final value = _medicines;
     if (value == null) return null;
-    if (_medicine is EqualUnmodifiableListView) return _medicine;
+    if (_medicines is EqualUnmodifiableListView) return _medicines;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
   @override
   String toString() {
-    return 'User(id: $id, email: $email, name: $name, password: $password, medicine: $medicine)';
+    return 'User(id: $id, email: $email, name: $name, password: $password, medicines: $medicines)';
   }
 
   @override
@@ -188,13 +188,14 @@ class _$_User implements _User {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.password, password) ||
                 other.password == password) &&
-            const DeepCollectionEquality().equals(other._medicine, _medicine));
+            const DeepCollectionEquality()
+                .equals(other._medicines, _medicines));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, email, name, password,
-      const DeepCollectionEquality().hash(_medicine));
+      const DeepCollectionEquality().hash(_medicines));
 
   @JsonKey(ignore: true)
   @override
@@ -216,7 +217,7 @@ abstract class _User implements User {
       required final String email,
       final String? name,
       required final String password,
-      final List<Medicine>? medicine}) = _$_User;
+      final List<Medicine>? medicines}) = _$_User;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
 
@@ -229,7 +230,7 @@ abstract class _User implements User {
   @override
   String get password;
   @override
-  List<Medicine>? get medicine;
+  List<Medicine>? get medicines;
   @override
   @JsonKey(ignore: true)
   _$$_UserCopyWith<_$_User> get copyWith => throw _privateConstructorUsedError;

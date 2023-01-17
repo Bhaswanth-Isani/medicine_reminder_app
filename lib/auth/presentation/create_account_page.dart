@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:medicine_reminder_app/auth/application/auth_repository.dart';
+import 'package:medicine_reminder_app/core/presentation/custom_text_field.dart';
 import 'package:medicine_reminder_app/core/presentation/router.dart';
 
 class CreateAccountPage extends HookConsumerWidget {
@@ -112,47 +113,6 @@ class CreateAccountPage extends HookConsumerWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-class CustomTextField extends StatelessWidget {
-  const CustomTextField({
-    super.key,
-    required this.label,
-    required this.controller,
-    required this.validator,
-    required this.isLoading,
-  });
-
-  final String label;
-  final TextEditingController controller;
-  final String? Function(String?)? validator;
-  final bool isLoading;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          label,
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 12,
-          ),
-        ),
-        TextFormField(
-          enabled: !isLoading,
-          validator: validator,
-          controller: controller,
-          // ignore: avoid_bool_literals_in_conditional_expressions
-          obscureText: label == 'PASSWORD' ? true : false,
-          decoration: const InputDecoration(
-            border: OutlineInputBorder(),
-          ),
-        ),
-      ],
     );
   }
 }
