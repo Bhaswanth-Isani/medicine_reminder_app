@@ -16,4 +16,18 @@ class RiverpodObserver extends ProviderObserver {
   "newValue": "$newValue"
 }''');
   }
+
+  @override
+  void didAddProvider(
+    ProviderBase<dynamic> provider,
+    Object? value,
+    ProviderContainer container,
+  ) {
+    log('''
+ {
+  "provider": "${provider.name ?? provider.runtimeType}",
+  "value": "$value"
+}
+    ''');
+  }
 }
