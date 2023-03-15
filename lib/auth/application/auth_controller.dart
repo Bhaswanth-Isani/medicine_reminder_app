@@ -1,10 +1,6 @@
-import 'dart:developer';
-
 import 'package:dartz/dartz.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:medicine_reminder_app/auth/application/auth_state.dart';
 import 'package:medicine_reminder_app/auth/auth.dart';
-import 'package:medicine_reminder_app/auth/infrastructure/infrastructure.dart';
 import 'package:medicine_reminder_app/core/core.dart';
 
 abstract class BaseAuthController extends StateNotifier<AuthState> {
