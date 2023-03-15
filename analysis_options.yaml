@@ -1,8 +1,33 @@
 include: package:very_good_analysis/analysis_options.3.1.0.yaml
 analyzer:
-  exclude: [lib/**.freezed.dart, lib/**.g.dart, packages/**]
+  exclude:
+    - 'build/**'
+    - '**/*.g.dart'
+    - '**/*.freezed.dart'
+  plugins:
+    - dart_code_metrics
 
 linter:
   rules:
     public_member_api_docs: false
-    
+    avoid_js_rounded_ints: false
+
+dart_code_metrics:
+  metrics:
+    cyclomatic-complexity: 20
+    number of parameters: 4
+    maximum-nesting-level: 5
+  metrics-exclude:
+    - test/**
+  rules:
+    - avoid-redundant-async
+    - avoid-unnecessary-type-assertions
+    - avoid-unnecessary-type-casts
+    - avoid-unrelated-type-assertions
+    - avoid-unused-parameters
+    - newline-before-return
+    - no-boolean-literal-compare
+    - no-empty-block
+    - prefer-trailing-comma
+    - prefer-conditional-expressions
+    - no-equal-then-else

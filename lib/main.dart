@@ -8,11 +8,7 @@ import 'package:medicine_reminder_app/core/core.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  if (kReleaseMode) {
-    await dotenv.load();
-  } else {
-    await dotenv.load(fileName: '.env.development');
-  }
+  await dotenv.load();
 
   runApp(
     ProviderScope(

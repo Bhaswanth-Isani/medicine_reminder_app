@@ -17,7 +17,7 @@ part 'user.g.dart';
 class User with _$User {
   const factory User({
     @EmailAddressConverter() required EmailAddress email,
-    @UsernameConverter() required Username username,
+    @UsernameConverter() required Username name,
   }) = _User;
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);

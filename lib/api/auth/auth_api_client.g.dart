@@ -35,7 +35,7 @@ class _AuthApiClient implements AuthApiClient {
     )
             .compose(
               _dio.options,
-              '/auth/create-account',
+              '/user/create-account',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -61,64 +61,12 @@ class _AuthApiClient implements AuthApiClient {
     )
             .compose(
               _dio.options,
-              '/auth/login',
+              '/user/login',
               queryParameters: queryParameters,
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = UserApiResponse.fromJson(_result.data!);
-    return value;
-  }
-
-  @override
-  Future<SendOTPResponse> sendOTPToEmail(data) async {
-    const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{r'Content-Type': 'application/json'};
-    _headers.removeWhere((k, v) => v == null);
-    final _data = <String, dynamic>{};
-    _data.addAll(data.toJson());
-    final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<SendOTPResponse>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-      contentType: 'application/json',
-    )
-            .compose(
-              _dio.options,
-              '/auth/send-otp',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = SendOTPResponse.fromJson(_result.data!);
-    return value;
-  }
-
-  @override
-  Future<ForgotPasswordResponse> forgotPassword(password) async {
-    const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{r'Content-Type': 'application/json'};
-    _headers.removeWhere((k, v) => v == null);
-    final _data = <String, dynamic>{};
-    _data.addAll(password.toJson());
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ForgotPasswordResponse>(Options(
-      method: 'PATCH',
-      headers: _headers,
-      extra: _extra,
-      contentType: 'application/json',
-    )
-            .compose(
-              _dio.options,
-              '/auth/forgot-password',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = ForgotPasswordResponse.fromJson(_result.data!);
     return value;
   }
 

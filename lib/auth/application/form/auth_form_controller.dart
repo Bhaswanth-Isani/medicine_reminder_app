@@ -6,7 +6,6 @@ abstract class BaseAuthFormController {
   void updateUsername(String username);
   void updateEmail(String email);
   void updatePassword(String password);
-  void updateOTP(String otp);
   void onSubmit({bool showErrors = true});
   void reset();
 }
@@ -33,11 +32,6 @@ class AuthFormController extends StateNotifier<AuthFormState>
   @override
   void updatePassword(String password) {
     state = state.copyWith(password: Password(password));
-  }
-
-  @override
-  void updateOTP(String otp) {
-    state = state.copyWith(otp: OTP(otp));
   }
 
   @override

@@ -9,14 +9,12 @@ class AuthState with _$AuthState {
   const factory AuthState({
     required bool isLoading,
     required AdminIsar? admin,
-    required OTP? otp,
     required Either<InfrastructureFailure, Unit>? successOrFailure,
   }) = _AuthState;
 
   factory AuthState.initial() => const AuthState(
         isLoading: false,
         admin: null,
-        otp: null,
         successOrFailure: null,
       );
 }

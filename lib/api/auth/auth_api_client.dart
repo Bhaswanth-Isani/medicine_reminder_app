@@ -15,25 +15,12 @@ abstract class AuthApiClient {
 
   /// Function to call /auth/create-account POST route with CreateAccountInput
   /// as body.
-  @POST('/auth/create-account')
+  @POST('/user/create-account')
   @Headers(<String, dynamic>{'Content-Type': 'application/json'})
   Future<UserApiResponse> createAccount(@Body() CreateAccountInput user);
 
   /// Function to call /auth/login POST route with LoginInput as body.
-  @POST('/auth/login')
+  @POST('/user/login')
   @Headers(<String, dynamic>{'Content-Type': 'application/json'})
   Future<UserApiResponse> loginUser(@Body() LoginInput user);
-
-  /// Function to call /auth/send-otp GET route with SendOtpInput as body
-  @GET('/auth/send-otp')
-  @Headers(<String, dynamic>{'Content-Type': 'application/json'})
-  Future<SendOTPResponse> sendOTPToEmail(@Body() SendOTPInput data);
-
-  /// Function to call /auth/forgot-password PATCH route with ForgotPasswordInput
-  /// as body
-  @PATCH('/auth/forgot-password')
-  @Headers(<String, dynamic>{'Content-Type': 'application/json'})
-  Future<ForgotPasswordResponse> forgotPassword(
-    @Body() ForgotPasswordInput password,
-  );
 }

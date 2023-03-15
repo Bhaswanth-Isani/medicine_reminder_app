@@ -5,9 +5,7 @@ import 'package:medicine_reminder_app/auth/presentation/widgets/widgets.dart';
 import 'package:medicine_reminder_app/router/router.dart';
 
 class LoginForm extends ConsumerWidget {
-  const LoginForm({super.key, required this.onForgotPasswordPressed});
-
-  final void Function()? onForgotPasswordPressed;
+  const LoginForm({super.key});
 
   Future<void> onSubmit(WidgetRef ref) async {
     final authFormState = ref.read(authFormControllerProvider);
@@ -20,6 +18,10 @@ class LoginForm extends ConsumerWidget {
             email: ref.read(authFormControllerProvider).email,
             password: ref.read(authFormControllerProvider).password,
           );
+      if (ref.read(authControllerProvider).successOrFailure != null &&
+          ref.read(authControllerProvider).successOrFailure!.isRight()) {
+        ref.read(authFormControllerProvider.notifier).reset();
+      }
     }
   }
 
@@ -61,10 +63,6 @@ class LoginForm extends ConsumerWidget {
                 .validator(),
             onChanged:
                 ref.read(authFormControllerProvider.notifier).updatePassword,
-          ),
-          AuthTextButton(
-            label: 'Forgot Password?',
-            onPressed: onForgotPasswordPressed,
           ),
           const SizedBox(height: 24),
           AuthButton(

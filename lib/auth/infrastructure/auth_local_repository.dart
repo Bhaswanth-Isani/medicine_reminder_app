@@ -59,7 +59,7 @@ class AuthLocalRepository implements BaseAuthLocalRepository {
       ..token = userApiResponse.token!
       ..email = userApiResponse.user!.email.value
       ..id = '0'
-      ..username = userApiResponse.user!.username.value;
+      ..username = userApiResponse.user!.name.value;
 
     // Creates a new Admin document in the database. If there is no error then
     // it returns admin else returns an InfrastructureFailure.

@@ -19,7 +19,6 @@ mixin _$AuthFormState {
   Username get username => throw _privateConstructorUsedError;
   EmailAddress get email => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
-  OTP get otp => throw _privateConstructorUsedError;
   bool get showErrors => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -37,7 +36,6 @@ abstract class $AuthFormStateCopyWith<$Res> {
       {Username username,
       EmailAddress email,
       Password password,
-      OTP otp,
       bool showErrors});
 }
 
@@ -57,7 +55,6 @@ class _$AuthFormStateCopyWithImpl<$Res, $Val extends AuthFormState>
     Object? username = null,
     Object? email = null,
     Object? password = null,
-    Object? otp = null,
     Object? showErrors = null,
   }) {
     return _then(_value.copyWith(
@@ -73,10 +70,6 @@ class _$AuthFormStateCopyWithImpl<$Res, $Val extends AuthFormState>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
-      otp: null == otp
-          ? _value.otp
-          : otp // ignore: cast_nullable_to_non_nullable
-              as OTP,
       showErrors: null == showErrors
           ? _value.showErrors
           : showErrors // ignore: cast_nullable_to_non_nullable
@@ -97,7 +90,6 @@ abstract class _$$_AuthFormStateCopyWith<$Res>
       {Username username,
       EmailAddress email,
       Password password,
-      OTP otp,
       bool showErrors});
 }
 
@@ -115,7 +107,6 @@ class __$$_AuthFormStateCopyWithImpl<$Res>
     Object? username = null,
     Object? email = null,
     Object? password = null,
-    Object? otp = null,
     Object? showErrors = null,
   }) {
     return _then(_$_AuthFormState(
@@ -131,10 +122,6 @@ class __$$_AuthFormStateCopyWithImpl<$Res>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
-      otp: null == otp
-          ? _value.otp
-          : otp // ignore: cast_nullable_to_non_nullable
-              as OTP,
       showErrors: null == showErrors
           ? _value.showErrors
           : showErrors // ignore: cast_nullable_to_non_nullable
@@ -150,7 +137,6 @@ class _$_AuthFormState implements _AuthFormState {
       {required this.username,
       required this.email,
       required this.password,
-      required this.otp,
       required this.showErrors});
 
   @override
@@ -160,13 +146,11 @@ class _$_AuthFormState implements _AuthFormState {
   @override
   final Password password;
   @override
-  final OTP otp;
-  @override
   final bool showErrors;
 
   @override
   String toString() {
-    return 'AuthFormState(username: $username, email: $email, password: $password, otp: $otp, showErrors: $showErrors)';
+    return 'AuthFormState(username: $username, email: $email, password: $password, showErrors: $showErrors)';
   }
 
   @override
@@ -179,14 +163,13 @@ class _$_AuthFormState implements _AuthFormState {
             (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) ||
                 other.password == password) &&
-            (identical(other.otp, otp) || other.otp == otp) &&
             (identical(other.showErrors, showErrors) ||
                 other.showErrors == showErrors));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, username, email, password, otp, showErrors);
+      Object.hash(runtimeType, username, email, password, showErrors);
 
   @JsonKey(ignore: true)
   @override
@@ -200,7 +183,6 @@ abstract class _AuthFormState implements AuthFormState {
       {required final Username username,
       required final EmailAddress email,
       required final Password password,
-      required final OTP otp,
       required final bool showErrors}) = _$_AuthFormState;
 
   @override
@@ -209,8 +191,6 @@ abstract class _AuthFormState implements AuthFormState {
   EmailAddress get email;
   @override
   Password get password;
-  @override
-  OTP get otp;
   @override
   bool get showErrors;
   @override

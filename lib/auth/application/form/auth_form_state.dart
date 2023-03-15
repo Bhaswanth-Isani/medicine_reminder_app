@@ -9,7 +9,6 @@ class AuthFormState with _$AuthFormState {
     required Username username,
     required EmailAddress email,
     required Password password,
-    required OTP otp,
     required bool showErrors,
   }) = _AuthFormState;
 
@@ -17,7 +16,6 @@ class AuthFormState with _$AuthFormState {
         username: Username(''),
         email: EmailAddress(''),
         password: Password(''),
-        otp: OTP(''),
         showErrors: false,
       );
 }

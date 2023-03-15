@@ -48,19 +48,3 @@ class UsernameConverter implements JsonConverter<Username, String> {
     return username.getOrCrash();
   }
 }
-
-/// A JSON converter for OTP value object. Using toJson when the input is
-/// a failure will result in an app crash.
-class OTPConverter implements JsonConverter<OTP, String> {
-  const OTPConverter();
-
-  @override
-  OTP fromJson(String input) {
-    return OTP(input);
-  }
-
-  @override
-  String toJson(OTP otp) {
-    return otp.getOrCrash();
-  }
-}

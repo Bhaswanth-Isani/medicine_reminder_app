@@ -83,30 +83,3 @@ class Username extends ValueObject<String> {
   @override
   final String value;
 }
-
-/// Create a OTP which extends ValueObject and checks if the otp is of length 6
-/// characters.
-class OTP extends ValueObject<String> {
-  factory OTP(String input) {
-    return OTP._(
-      validatedValue: validateOTP(input),
-      value: input,
-    );
-  }
-
-  OTP._({required this.validatedValue, required this.value});
-
-  @override
-  String? validator() {
-    return validatedValue.fold(
-      (failure) => 'Enter a valid OTP.',
-      (_) => null,
-    );
-  }
-
-  @override
-  final EitherFailure<String> validatedValue;
-
-  @override
-  final String value;
-}

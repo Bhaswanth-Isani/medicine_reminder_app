@@ -20,7 +20,7 @@ CreateAccountInput _$CreateAccountInputFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CreateAccountInput {
-  String get username => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
 
@@ -36,7 +36,7 @@ abstract class $CreateAccountInputCopyWith<$Res> {
           CreateAccountInput value, $Res Function(CreateAccountInput) then) =
       _$CreateAccountInputCopyWithImpl<$Res, CreateAccountInput>;
   @useResult
-  $Res call({String username, String email, String password});
+  $Res call({String name, String email, String password});
 }
 
 /// @nodoc
@@ -52,14 +52,14 @@ class _$CreateAccountInputCopyWithImpl<$Res, $Val extends CreateAccountInput>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? username = null,
+    Object? name = null,
     Object? email = null,
     Object? password = null,
   }) {
     return _then(_value.copyWith(
-      username: null == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
       email: null == email
           ? _value.email
@@ -81,7 +81,7 @@ abstract class _$$_CreateAccountInputCopyWith<$Res>
       __$$_CreateAccountInputCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String username, String email, String password});
+  $Res call({String name, String email, String password});
 }
 
 /// @nodoc
@@ -95,14 +95,14 @@ class __$$_CreateAccountInputCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? username = null,
+    Object? name = null,
     Object? email = null,
     Object? password = null,
   }) {
     return _then(_$_CreateAccountInput(
-      username: null == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
       email: null == email
           ? _value.email
@@ -120,13 +120,13 @@ class __$$_CreateAccountInputCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_CreateAccountInput implements _CreateAccountInput {
   const _$_CreateAccountInput(
-      {required this.username, required this.email, required this.password});
+      {required this.name, required this.email, required this.password});
 
   factory _$_CreateAccountInput.fromJson(Map<String, dynamic> json) =>
       _$$_CreateAccountInputFromJson(json);
 
   @override
-  final String username;
+  final String name;
   @override
   final String email;
   @override
@@ -134,7 +134,7 @@ class _$_CreateAccountInput implements _CreateAccountInput {
 
   @override
   String toString() {
-    return 'CreateAccountInput(username: $username, email: $email, password: $password)';
+    return 'CreateAccountInput(name: $name, email: $email, password: $password)';
   }
 
   @override
@@ -142,8 +142,7 @@ class _$_CreateAccountInput implements _CreateAccountInput {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CreateAccountInput &&
-            (identical(other.username, username) ||
-                other.username == username) &&
+            (identical(other.name, name) || other.name == name) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) ||
                 other.password == password));
@@ -151,7 +150,7 @@ class _$_CreateAccountInput implements _CreateAccountInput {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, username, email, password);
+  int get hashCode => Object.hash(runtimeType, name, email, password);
 
   @JsonKey(ignore: true)
   @override
@@ -170,7 +169,7 @@ class _$_CreateAccountInput implements _CreateAccountInput {
 
 abstract class _CreateAccountInput implements CreateAccountInput {
   const factory _CreateAccountInput(
-      {required final String username,
+      {required final String name,
       required final String email,
       required final String password}) = _$_CreateAccountInput;
 
@@ -178,7 +177,7 @@ abstract class _CreateAccountInput implements CreateAccountInput {
       _$_CreateAccountInput.fromJson;
 
   @override
-  String get username;
+  String get name;
   @override
   String get email;
   @override
@@ -341,334 +340,5 @@ abstract class _LoginInput implements LoginInput {
   @override
   @JsonKey(ignore: true)
   _$$_LoginInputCopyWith<_$_LoginInput> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-SendOTPInput _$SendOTPInputFromJson(Map<String, dynamic> json) {
-  return _SendOTPInput.fromJson(json);
-}
-
-/// @nodoc
-mixin _$SendOTPInput {
-  String get email => throw _privateConstructorUsedError;
-  bool get isRegister => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $SendOTPInputCopyWith<SendOTPInput> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $SendOTPInputCopyWith<$Res> {
-  factory $SendOTPInputCopyWith(
-          SendOTPInput value, $Res Function(SendOTPInput) then) =
-      _$SendOTPInputCopyWithImpl<$Res, SendOTPInput>;
-  @useResult
-  $Res call({String email, bool isRegister});
-}
-
-/// @nodoc
-class _$SendOTPInputCopyWithImpl<$Res, $Val extends SendOTPInput>
-    implements $SendOTPInputCopyWith<$Res> {
-  _$SendOTPInputCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? email = null,
-    Object? isRegister = null,
-  }) {
-    return _then(_value.copyWith(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      isRegister: null == isRegister
-          ? _value.isRegister
-          : isRegister // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$_SendOTPInputCopyWith<$Res>
-    implements $SendOTPInputCopyWith<$Res> {
-  factory _$$_SendOTPInputCopyWith(
-          _$_SendOTPInput value, $Res Function(_$_SendOTPInput) then) =
-      __$$_SendOTPInputCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String email, bool isRegister});
-}
-
-/// @nodoc
-class __$$_SendOTPInputCopyWithImpl<$Res>
-    extends _$SendOTPInputCopyWithImpl<$Res, _$_SendOTPInput>
-    implements _$$_SendOTPInputCopyWith<$Res> {
-  __$$_SendOTPInputCopyWithImpl(
-      _$_SendOTPInput _value, $Res Function(_$_SendOTPInput) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? email = null,
-    Object? isRegister = null,
-  }) {
-    return _then(_$_SendOTPInput(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      isRegister: null == isRegister
-          ? _value.isRegister
-          : isRegister // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$_SendOTPInput implements _SendOTPInput {
-  const _$_SendOTPInput({required this.email, required this.isRegister});
-
-  factory _$_SendOTPInput.fromJson(Map<String, dynamic> json) =>
-      _$$_SendOTPInputFromJson(json);
-
-  @override
-  final String email;
-  @override
-  final bool isRegister;
-
-  @override
-  String toString() {
-    return 'SendOTPInput(email: $email, isRegister: $isRegister)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_SendOTPInput &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.isRegister, isRegister) ||
-                other.isRegister == isRegister));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, email, isRegister);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_SendOTPInputCopyWith<_$_SendOTPInput> get copyWith =>
-      __$$_SendOTPInputCopyWithImpl<_$_SendOTPInput>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_SendOTPInputToJson(
-      this,
-    );
-  }
-}
-
-abstract class _SendOTPInput implements SendOTPInput {
-  const factory _SendOTPInput(
-      {required final String email,
-      required final bool isRegister}) = _$_SendOTPInput;
-
-  factory _SendOTPInput.fromJson(Map<String, dynamic> json) =
-      _$_SendOTPInput.fromJson;
-
-  @override
-  String get email;
-  @override
-  bool get isRegister;
-  @override
-  @JsonKey(ignore: true)
-  _$$_SendOTPInputCopyWith<_$_SendOTPInput> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-ForgotPasswordInput _$ForgotPasswordInputFromJson(Map<String, dynamic> json) {
-  return _ForgotPasswordInput.fromJson(json);
-}
-
-/// @nodoc
-mixin _$ForgotPasswordInput {
-  String get email => throw _privateConstructorUsedError;
-  String get newPassword => throw _privateConstructorUsedError;
-  String get otp => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ForgotPasswordInputCopyWith<ForgotPasswordInput> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ForgotPasswordInputCopyWith<$Res> {
-  factory $ForgotPasswordInputCopyWith(
-          ForgotPasswordInput value, $Res Function(ForgotPasswordInput) then) =
-      _$ForgotPasswordInputCopyWithImpl<$Res, ForgotPasswordInput>;
-  @useResult
-  $Res call({String email, String newPassword, String otp});
-}
-
-/// @nodoc
-class _$ForgotPasswordInputCopyWithImpl<$Res, $Val extends ForgotPasswordInput>
-    implements $ForgotPasswordInputCopyWith<$Res> {
-  _$ForgotPasswordInputCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? email = null,
-    Object? newPassword = null,
-    Object? otp = null,
-  }) {
-    return _then(_value.copyWith(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      newPassword: null == newPassword
-          ? _value.newPassword
-          : newPassword // ignore: cast_nullable_to_non_nullable
-              as String,
-      otp: null == otp
-          ? _value.otp
-          : otp // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$_ForgotPasswordInputCopyWith<$Res>
-    implements $ForgotPasswordInputCopyWith<$Res> {
-  factory _$$_ForgotPasswordInputCopyWith(_$_ForgotPasswordInput value,
-          $Res Function(_$_ForgotPasswordInput) then) =
-      __$$_ForgotPasswordInputCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String email, String newPassword, String otp});
-}
-
-/// @nodoc
-class __$$_ForgotPasswordInputCopyWithImpl<$Res>
-    extends _$ForgotPasswordInputCopyWithImpl<$Res, _$_ForgotPasswordInput>
-    implements _$$_ForgotPasswordInputCopyWith<$Res> {
-  __$$_ForgotPasswordInputCopyWithImpl(_$_ForgotPasswordInput _value,
-      $Res Function(_$_ForgotPasswordInput) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? email = null,
-    Object? newPassword = null,
-    Object? otp = null,
-  }) {
-    return _then(_$_ForgotPasswordInput(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      newPassword: null == newPassword
-          ? _value.newPassword
-          : newPassword // ignore: cast_nullable_to_non_nullable
-              as String,
-      otp: null == otp
-          ? _value.otp
-          : otp // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$_ForgotPasswordInput implements _ForgotPasswordInput {
-  const _$_ForgotPasswordInput(
-      {required this.email, required this.newPassword, required this.otp});
-
-  factory _$_ForgotPasswordInput.fromJson(Map<String, dynamic> json) =>
-      _$$_ForgotPasswordInputFromJson(json);
-
-  @override
-  final String email;
-  @override
-  final String newPassword;
-  @override
-  final String otp;
-
-  @override
-  String toString() {
-    return 'ForgotPasswordInput(email: $email, newPassword: $newPassword, otp: $otp)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_ForgotPasswordInput &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.newPassword, newPassword) ||
-                other.newPassword == newPassword) &&
-            (identical(other.otp, otp) || other.otp == otp));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, email, newPassword, otp);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_ForgotPasswordInputCopyWith<_$_ForgotPasswordInput> get copyWith =>
-      __$$_ForgotPasswordInputCopyWithImpl<_$_ForgotPasswordInput>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_ForgotPasswordInputToJson(
-      this,
-    );
-  }
-}
-
-abstract class _ForgotPasswordInput implements ForgotPasswordInput {
-  const factory _ForgotPasswordInput(
-      {required final String email,
-      required final String newPassword,
-      required final String otp}) = _$_ForgotPasswordInput;
-
-  factory _ForgotPasswordInput.fromJson(Map<String, dynamic> json) =
-      _$_ForgotPasswordInput.fromJson;
-
-  @override
-  String get email;
-  @override
-  String get newPassword;
-  @override
-  String get otp;
-  @override
-  @JsonKey(ignore: true)
-  _$$_ForgotPasswordInputCopyWith<_$_ForgotPasswordInput> get copyWith =>
       throw _privateConstructorUsedError;
 }

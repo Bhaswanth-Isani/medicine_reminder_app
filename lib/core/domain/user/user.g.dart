@@ -8,10 +8,10 @@ part of 'user.dart';
 
 _$_User _$$_UserFromJson(Map<String, dynamic> json) => _$_User(
       email: const EmailAddressConverter().fromJson(json['email'] as String),
-      username: const UsernameConverter().fromJson(json['username'] as String),
+      name: const UsernameConverter().fromJson(json['name'] as String),
     );
 
 Map<String, dynamic> _$$_UserToJson(_$_User instance) => <String, dynamic>{
       'email': const EmailAddressConverter().toJson(instance.email),
-      'username': const UsernameConverter().toJson(instance.username),
+      'name': const UsernameConverter().toJson(instance.name),
     };

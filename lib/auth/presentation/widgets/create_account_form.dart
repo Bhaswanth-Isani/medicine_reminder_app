@@ -5,9 +5,29 @@ import 'package:medicine_reminder_app/auth/presentation/widgets/widgets.dart';
 import 'package:medicine_reminder_app/router/router.dart';
 
 class CreateAccountForm extends ConsumerWidget {
-  const CreateAccountForm({super.key, required this.onSubmit});
+  const CreateAccountForm({super.key});
 
-  final void Function()? onSubmit;
+  Future<void> onCreateAccount(WidgetRef ref) async {
+    final authFormState = ref.read(authFormControllerProvider);
+
+    if (authFormState.username.isValid() &&
+        authFormState.email.isValid() &&
+        authFormState.password.isValid()) {
+      await ref
+          .read(authControllerProvider.notifier)
+          .createAccountUsingEmailAndPassword(
+            username: authFormState.username,
+            email: authFormState.email,
+            password: authFormState.password,
+          );
+      if (ref.read(authControllerProvider).successOrFailure != null &&
+          ref.read(authControllerProvider).successOrFailure!.isRight()) {
+        ref.read(authFormControllerProvider.notifier).reset();
+      }
+    } else {
+      ref.read(authFormControllerProvider.notifier).onSubmit();
+    }
+  }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -74,12 +94,10 @@ class CreateAccountForm extends ConsumerWidget {
                 ref.read(authFormControllerProvider.notifier).updatePassword,
           ),
           const SizedBox(height: 24),
-          Flexible(
-            child: AuthButton(
-              isLoading: isLoading,
-              label: 'Create Account',
-              onPressed: onSubmit,
-            ),
+          AuthButton(
+            isLoading: isLoading,
+            label: 'Create Account',
+            onPressed: () => onCreateAccount(ref),
           ),
           const SizedBox(height: 8),
           AuthTextButton(

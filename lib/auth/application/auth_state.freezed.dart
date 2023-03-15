@@ -18,7 +18,6 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AuthState {
   bool get isLoading => throw _privateConstructorUsedError;
   AdminIsar? get admin => throw _privateConstructorUsedError;
-  OTP? get otp => throw _privateConstructorUsedError;
   Either<InfrastructureFailure, Unit>? get successOrFailure =>
       throw _privateConstructorUsedError;
 
@@ -35,7 +34,6 @@ abstract class $AuthStateCopyWith<$Res> {
   $Res call(
       {bool isLoading,
       AdminIsar? admin,
-      OTP? otp,
       Either<InfrastructureFailure, Unit>? successOrFailure});
 }
 
@@ -54,7 +52,6 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
   $Res call({
     Object? isLoading = null,
     Object? admin = freezed,
-    Object? otp = freezed,
     Object? successOrFailure = freezed,
   }) {
     return _then(_value.copyWith(
@@ -66,10 +63,6 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
           ? _value.admin
           : admin // ignore: cast_nullable_to_non_nullable
               as AdminIsar?,
-      otp: freezed == otp
-          ? _value.otp
-          : otp // ignore: cast_nullable_to_non_nullable
-              as OTP?,
       successOrFailure: freezed == successOrFailure
           ? _value.successOrFailure
           : successOrFailure // ignore: cast_nullable_to_non_nullable
@@ -88,7 +81,6 @@ abstract class _$$_AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
   $Res call(
       {bool isLoading,
       AdminIsar? admin,
-      OTP? otp,
       Either<InfrastructureFailure, Unit>? successOrFailure});
 }
 
@@ -105,7 +97,6 @@ class __$$_AuthStateCopyWithImpl<$Res>
   $Res call({
     Object? isLoading = null,
     Object? admin = freezed,
-    Object? otp = freezed,
     Object? successOrFailure = freezed,
   }) {
     return _then(_$_AuthState(
@@ -117,10 +108,6 @@ class __$$_AuthStateCopyWithImpl<$Res>
           ? _value.admin
           : admin // ignore: cast_nullable_to_non_nullable
               as AdminIsar?,
-      otp: freezed == otp
-          ? _value.otp
-          : otp // ignore: cast_nullable_to_non_nullable
-              as OTP?,
       successOrFailure: freezed == successOrFailure
           ? _value.successOrFailure
           : successOrFailure // ignore: cast_nullable_to_non_nullable
@@ -135,7 +122,6 @@ class _$_AuthState implements _AuthState {
   const _$_AuthState(
       {required this.isLoading,
       required this.admin,
-      required this.otp,
       required this.successOrFailure});
 
   @override
@@ -143,13 +129,11 @@ class _$_AuthState implements _AuthState {
   @override
   final AdminIsar? admin;
   @override
-  final OTP? otp;
-  @override
   final Either<InfrastructureFailure, Unit>? successOrFailure;
 
   @override
   String toString() {
-    return 'AuthState(isLoading: $isLoading, admin: $admin, otp: $otp, successOrFailure: $successOrFailure)';
+    return 'AuthState(isLoading: $isLoading, admin: $admin, successOrFailure: $successOrFailure)';
   }
 
   @override
@@ -160,14 +144,13 @@ class _$_AuthState implements _AuthState {
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.admin, admin) || other.admin == admin) &&
-            (identical(other.otp, otp) || other.otp == otp) &&
             (identical(other.successOrFailure, successOrFailure) ||
                 other.successOrFailure == successOrFailure));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, isLoading, admin, otp, successOrFailure);
+      Object.hash(runtimeType, isLoading, admin, successOrFailure);
 
   @JsonKey(ignore: true)
   @override
@@ -180,7 +163,6 @@ abstract class _AuthState implements AuthState {
   const factory _AuthState(
       {required final bool isLoading,
       required final AdminIsar? admin,
-      required final OTP? otp,
       required final Either<InfrastructureFailure, Unit>?
           successOrFailure}) = _$_AuthState;
 
@@ -188,8 +170,6 @@ abstract class _AuthState implements AuthState {
   bool get isLoading;
   @override
   AdminIsar? get admin;
-  @override
-  OTP? get otp;
   @override
   Either<InfrastructureFailure, Unit>? get successOrFailure;
   @override

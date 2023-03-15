@@ -1,6 +1,9 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:medicine_reminder_app/auth/application/auth_state.dart';
+import 'package:medicine_reminder_app/auth/auth.dart';
 import 'package:medicine_reminder_app/auth/infrastructure/infrastructure.dart';
 import 'package:medicine_reminder_app/core/core.dart';
 
@@ -18,12 +21,6 @@ abstract class BaseAuthController extends StateNotifier<AuthState> {
   Future<void> loginUsingEmailAndPassword({
     required EmailAddress email,
     required Password password,
-  });
-  Future<void> sendOTP({required EmailAddress email, required bool isRegister});
-  Future<void> forgotPassword({
-    required EmailAddress email,
-    required Password newPassword,
-    required OTP otp,
   });
   void signOut();
 }
@@ -111,21 +108,29 @@ class AuthController extends StateNotifier<AuthState>
       // If the server response is success then returns a UserApiResponse.
       (response) {
         // This data is then stored in the local database.
-        _authRepository.local.saveLoggedInUser(response).fold(
-              // If the data is not successfully stored in the database then we
-              // will ask the user to login.
-              (failure) => state = state.copyWith(
-                isLoading: false,
-                successOrFailure: left(failure),
-              ),
-              // If the data is successfully stored then the user has
-              // successfully created an account.
-              (admin) => state = state.copyWith(
-                isLoading: false,
-                admin: admin,
-                successOrFailure: right(unit),
-              ),
-            );
+        if (response.error == null) {
+          _authRepository.local.saveLoggedInUser(response).fold(
+                // If the data is not successfully stored in the database then we
+                // will ask the user to login.
+                (failure) => state = state.copyWith(
+                  isLoading: false,
+                  successOrFailure: left(failure),
+                ),
+                // If the data is successfully stored then the user has
+                // successfully created an account.
+                (admin) => state = state.copyWith(
+                  isLoading: false,
+                  admin: admin,
+                  successOrFailure: right(unit),
+                ),
+              );
+        } else {
+          state = state.copyWith(
+            isLoading: false,
+            successOrFailure:
+                left(const AuthInfrastructureFailure.userAlreadyExists()),
+          );
+        }
       },
     );
   }
@@ -158,71 +163,30 @@ class AuthController extends StateNotifier<AuthState>
       ),
       // If the server response is success then returns a UserApiResponse.
       (response) {
-        _authRepository.local.saveLoggedInUser(response).fold(
-              // If the data is not successfully stored in the database then we
-              // will ask the user to try logging in again after some time.
-              (failure) => state = state.copyWith(
-                isLoading: false,
-                successOrFailure: left(failure),
-              ),
-              // If the data is successfully stored then the user has
-              // successfully logged in to the app.
-              (admin) => state = state.copyWith(
-                isLoading: false,
-                admin: admin,
-                successOrFailure: right(unit),
-              ),
-            );
+        if (response.error == null) {
+          _authRepository.local.saveLoggedInUser(response).fold(
+                // If the data is not successfully stored in the database then we
+                // will ask the user to try logging in again after some time.
+                (failure) => state = state.copyWith(
+                  isLoading: false,
+                  successOrFailure: left(failure),
+                ),
+                // If the data is successfully stored then the user has
+                // successfully logged in to the app.
+                (admin) => state = state.copyWith(
+                  isLoading: false,
+                  admin: admin,
+                  successOrFailure: right(unit),
+                ),
+              );
+        } else {
+          state = state.copyWith(
+            isLoading: false,
+            successOrFailure:
+                left(const AuthInfrastructureFailure.invalidCredentials()),
+          );
+        }
       },
-    );
-  }
-
-  /// Sends OTP to user's email stores the otp
-  @override
-  Future<void> sendOTP({
-    required EmailAddress email,
-    required bool isRegister,
-  }) async {
-    state = state.copyWith(isLoading: true, successOrFailure: null);
-
-    // Sends the information to the server and gets a response from the server.
-    final sendOTPResponse = await _authRepository.server.sendOTP(
-      email: email,
-      isRegister: isRegister,
-    );
-
-    sendOTPResponse.fold(
-      (failure) => state =
-          state.copyWith(isLoading: false, successOrFailure: left(failure)),
-      (otp) => state = state.copyWith(
-        isLoading: false,
-        otp: otp.otp,
-        successOrFailure: right(unit),
-      ),
-    );
-  }
-
-  /// Changes the user's password to a new one set by the user
-  @override
-  Future<void> forgotPassword({
-    required EmailAddress email,
-    required Password newPassword,
-    required OTP otp,
-  }) async {
-    state = state.copyWith(isLoading: true, successOrFailure: null);
-
-    // Sends the information to the server to change user's password.
-    final forgotPasswordResponse = await _authRepository.server.forgotPassword(
-      email: email,
-      newPassword: newPassword,
-      otp: otp,
-    );
-
-    forgotPasswordResponse.fold(
-      (failure) => state =
-          state.copyWith(isLoading: false, successOrFailure: left(failure)),
-      (success) => state =
-          state.copyWith(isLoading: false, successOrFailure: right(unit)),
     );
   }
 
