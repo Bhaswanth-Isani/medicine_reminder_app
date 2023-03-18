@@ -7,31 +7,10 @@ part of 'router.dart';
 // **************************************************************************
 
 List<GoRoute> get $appRoutes => [
-      $splashRoute,
       $createAccountRoute,
       $loginRoute,
       $dashboardRoute,
     ];
-
-GoRoute get $splashRoute => GoRouteData.$route(
-      path: '/',
-      factory: $SplashRouteExtension._fromState,
-    );
-
-extension $SplashRouteExtension on SplashRoute {
-  static SplashRoute _fromState(GoRouterState state) => const SplashRoute();
-
-  String get location => GoRouteData.$location(
-        '/',
-      );
-
-  void go(BuildContext context) => context.go(location);
-
-  void push(BuildContext context) => context.push(location);
-
-  void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
-}
 
 GoRoute get $createAccountRoute => GoRouteData.$route(
       path: '/create-account',
@@ -75,8 +54,18 @@ extension $LoginRouteExtension on LoginRoute {
 }
 
 GoRoute get $dashboardRoute => GoRouteData.$route(
-      path: '/dashboard',
+      path: '/',
       factory: $DashboardRouteExtension._fromState,
+      routes: [
+        GoRouteData.$route(
+          path: 'medicine',
+          factory: $MedicineFormRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
+          path: 'list',
+          factory: $RemindersRouteExtension._fromState,
+        ),
+      ],
     );
 
 extension $DashboardRouteExtension on DashboardRoute {
@@ -84,7 +73,39 @@ extension $DashboardRouteExtension on DashboardRoute {
       const DashboardRoute();
 
   String get location => GoRouteData.$location(
-        '/dashboard',
+        '/',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  void push(BuildContext context) => context.push(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+}
+
+extension $MedicineFormRouteExtension on MedicineFormRoute {
+  static MedicineFormRoute _fromState(GoRouterState state) =>
+      const MedicineFormRoute();
+
+  String get location => GoRouteData.$location(
+        '/medicine',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  void push(BuildContext context) => context.push(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+}
+
+extension $RemindersRouteExtension on RemindersRoute {
+  static RemindersRoute _fromState(GoRouterState state) =>
+      const RemindersRoute();
+
+  String get location => GoRouteData.$location(
+        '/list',
       );
 
   void go(BuildContext context) => context.go(location);

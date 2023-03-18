@@ -74,8 +74,6 @@ class AuthServerRepository implements BaseAuthServerRepository {
         final createAccountResponse =
             await authApiClient.createAccount(createAccountInput);
 
-        log(createAccountResponse.toJson().toString());
-
         // If the response status code is 200 then it returns the
         // AuthResponseApi.
         return right(createAccountResponse);

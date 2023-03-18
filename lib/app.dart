@@ -15,17 +15,17 @@ class App extends ConsumerWidget {
     final router = GoRouter(
       routes: $appRoutes,
       debugLogDiagnostics: true,
-      initialLocation: const SplashRoute().location,
+      initialLocation: const DashboardRoute().location,
       redirect: (context, state) {
         final authState =
             ref.watch(authControllerProvider.select((value) => value.admin));
 
         return authState == null
             ? state.location == const LoginRoute().location ||
-                    state.location == const SplashRoute().location
+                    state.location == const DashboardRoute().location
                 ? const LoginRoute().location
                 : const CreateAccountRoute().location
-            : const DashboardRoute().location;
+            : null;
       },
     );
 

@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:medicine_reminder_app/auth/auth.dart';
 import 'package:medicine_reminder_app/core/core.dart';
+import 'package:medicine_reminder_app/dashboard/application/medicine_controller.dart';
 
 abstract class BaseAuthController extends StateNotifier<AuthState> {
   BaseAuthController() : super(AuthState.initial()) {
@@ -39,7 +40,7 @@ final authControllerProvider =
       local: authLocalRepository,
     );
 
-    return AuthController(authRepository);
+    return AuthController(authRepository, ref);
   },
 );
 
@@ -47,11 +48,13 @@ class AuthController extends StateNotifier<AuthState>
     implements BaseAuthController {
   AuthController(
     this._authRepository,
+    this._ref,
   ) : super(AuthState.initial()) {
     getLoggedInUser();
   }
 
   final AuthRepository _authRepository;
+  final Ref _ref;
 
   /// Gets currently logged in user details from local database.
   @override
@@ -193,15 +196,18 @@ class AuthController extends StateNotifier<AuthState>
 
     // Tries to delete all the data from the local database.
     _authRepository.local.signOut().fold(
-          // If it was not able to delete the data successfully then it returns
-          // a failure.
-          (failure) => state = state.copyWith(successOrFailure: left(failure)),
-          // If all the data is successfully deleted from the local database
-          // then the user is successfully logged out.
-          (_) => state = state.copyWith(
-            admin: null,
-            successOrFailure: right(unit),
-          ),
+      // If it was not able to delete the data successfully then it returns
+      // a failure.
+      (failure) => state = state.copyWith(successOrFailure: left(failure)),
+      // If all the data is successfully deleted from the local database
+      // then the user is successfully logged out.
+      (_) {
+        state = state.copyWith(
+          admin: null,
+          successOrFailure: right(unit),
         );
+        _ref.read(medicineControllerProvider.notifier).reset();
+      },
+    );
   }
 }

@@ -27,19 +27,19 @@ class PatrioDarkTheme {
         brightness: Brightness.dark,
         dialogBackgroundColor: sidebarColor,
         dividerColor: dividerColor,
-        colorScheme: const ColorScheme(
-          error: PatrioPalette.redColor,
-          brightness: Brightness.dark,
-          primary: PatrioPalette.primaryColor,
-          onPrimary: textPrimaryColor,
-          onError: textPrimaryColor,
-          background: scaffoldBackgroundColor,
-          onBackground: textPrimaryColor,
-          secondary: activeBackgroundColor,
-          onSecondary: textSecondaryColor,
-          surface: PatrioPalette.primaryColor,
-          onSurface: textPrimaryColor,
-        ),
+        // colorScheme: const ColorScheme(
+        //   error: PatrioPalette.redColor,
+        //   brightness: Brightness.dark,
+        //   primary: PatrioPalette.primaryColor,
+        //   onPrimary: textPrimaryColor,
+        //   onError: textPrimaryColor,
+        //   background: scaffoldBackgroundColor,
+        //   onBackground: textPrimaryColor,
+        //   secondary: activeBackgroundColor,
+        //   onSecondary: textSecondaryColor,
+        //   surface: PatrioPalette.primaryColor,
+        //   onSurface: textPrimaryColor,
+        // ),
         inputDecorationTheme: InputDecorationTheme(
           errorBorder: OutlineInputBorder(
             borderSide: const BorderSide(

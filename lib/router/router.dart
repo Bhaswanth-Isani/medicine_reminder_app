@@ -2,16 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:medicine_reminder_app/auth/auth.dart';
 import 'package:medicine_reminder_app/dashboard/dashboard.dart';
+import 'package:medicine_reminder_app/dashboard/presentation/medicine_form.dart';
+import 'package:medicine_reminder_app/dashboard/presentation/reminders_page.dart';
 
 part 'router.g.dart';
-
-@TypedGoRoute<SplashRoute>(path: '/')
-class SplashRoute extends GoRouteData {
-  const SplashRoute();
-
-  @override
-  Widget build(BuildContext context, GoRouterState state) => const SplashPage();
-}
 
 @TypedGoRoute<CreateAccountRoute>(path: '/create-account')
 class CreateAccountRoute extends GoRouteData {
@@ -30,11 +24,33 @@ class LoginRoute extends GoRouteData {
   Widget build(BuildContext context, GoRouterState state) => const LoginPage();
 }
 
-@TypedGoRoute<DashboardRoute>(path: '/dashboard')
+@TypedGoRoute<DashboardRoute>(
+  path: '/',
+  routes: <TypedGoRoute<GoRouteData>>[
+    TypedGoRoute<MedicineFormRoute>(path: 'medicine'),
+    TypedGoRoute<RemindersRoute>(path: 'list'),
+  ],
+)
 class DashboardRoute extends GoRouteData {
   const DashboardRoute();
 
   @override
   Widget build(BuildContext context, GoRouterState state) =>
       const DashboardPage();
+}
+
+class MedicineFormRoute extends GoRouteData {
+  const MedicineFormRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const MedicineForm();
+}
+
+class RemindersRoute extends GoRouteData {
+  const RemindersRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const RemindersPage();
 }

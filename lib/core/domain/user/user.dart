@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:medicine_reminder_app/core/domain/user/user_object_converters.dart';
 import 'package:medicine_reminder_app/core/domain/user/user_objects.dart';
+import 'package:medicine_reminder_app/dashboard/domain/medicine.dart';
 
 part 'user.freezed.dart';
 part 'user.g.dart';
@@ -16,8 +17,10 @@ part 'user.g.dart';
 /// crash.
 class User with _$User {
   const factory User({
+    required String id,
     @EmailAddressConverter() required EmailAddress email,
     @UsernameConverter() required Username name,
+    required List<Medicine> medicines,
   }) = _User;
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);

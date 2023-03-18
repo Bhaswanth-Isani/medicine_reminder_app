@@ -13,12 +13,14 @@ class PatrioLayout extends ConsumerWidget {
     required this.tabletLayout,
     required this.desktopLayout,
     this.appBar,
+    this.floatingActionButton,
   });
 
   final Widget mobileLayout;
   final Widget tabletLayout;
   final Widget desktopLayout;
   final AppBar? appBar;
+  final FloatingActionButton? floatingActionButton;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -104,6 +106,7 @@ class PatrioLayout extends ConsumerWidget {
             }
           },
         ),
+        floatingActionButton: floatingActionButton,
       ),
     );
   }
